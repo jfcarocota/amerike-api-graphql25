@@ -3,6 +3,20 @@ export const typeDefs = `#graphql
     Hello: String!
     CharacterDataList: [CharacterData]!
     CharacterDataByStyleName(styleName: String!): [CharacterData]!
+    CharacterDataById(id: String!): CharacterData!
+  },
+  type Mutation {
+    addCharacterData(
+      moveSpeed: Float!
+      jumpForce: Float!
+      styleName: String!
+    ):CharacterData!,
+    editCharacterData(
+      id: String!
+      moveSpeed: Float!
+      jumpForce: Float!
+      styleName: String!
+    ):CharacterData!
   },
   type CharacterData{
     id: ID!,
