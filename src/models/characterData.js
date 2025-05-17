@@ -15,11 +15,6 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
     unique: false,
-  },
-  styleName: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'StyleNameData',
-    index: true
   }
 });
 

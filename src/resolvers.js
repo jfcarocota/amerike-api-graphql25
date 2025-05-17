@@ -13,7 +13,7 @@ export const resolvers = {
     CharacterDataById: async (root, args) => {
       const {id} = args;
       const charaterData = CharacterData.findById(id);
-      return CharacterData.findById({_id: id}, {'styleName._id': charaterData.styleNameId});
+      return CharacterData.findById(id).populate('styleNameData');
     }
   },
     Mutation: {
