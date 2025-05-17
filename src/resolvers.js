@@ -12,12 +12,16 @@ export const resolvers = {
     },
     CharacterDataById: async (root, args) => {
       const {id} = args;
-      return CharacterData.findById(id);
+      const charaterData = CharacterData.findById(id);
+      return CharacterData.findById({_id: id}, {'styleName._id': charaterData.styleNameId});
     }
   },
     Mutation: {
       addCharacterData: async (root, args) => {
+        //const {styleNameId} = args;
         const characterData = new CharacterData({...args});
+        //const styleNameData = StyleNameData.findById(styleNameId).populate("");
+        //characterData.styleName = styleNameData
         return characterData.save();
       },
       addStyleNameData: async (root, args) => {

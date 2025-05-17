@@ -11,10 +11,15 @@ const schema = new mongoose.Schema({
     required: true,
     unique: false,
   },
-  styleName: {
+  styleNameId:{
     type: String,
     required: true,
     unique: false,
+  },
+  styleName: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'StyleNameData',
+    index: true
   }
 });
 

@@ -10,7 +10,7 @@ export const typeDefs = `#graphql
     addCharacterData(
       moveSpeed: Float!
       jumpForce: Float!
-      styleName: String!
+      styleNameId: String!
     ):CharacterData!
     addStyleNameData(
       styleName: String!
@@ -27,7 +27,7 @@ export const typeDefs = `#graphql
     id: ID!,
     moveSpeed: Float!
     jumpForce: Float!
-    styleName: String!
+    styleName: StyleNameData
   },
   type StyleNameData{
     id: ID!,
