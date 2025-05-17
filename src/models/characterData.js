@@ -1,21 +1,19 @@
 import mongoose from "mongoose";
 
-const schema = new mongoose.Schema({
+const characterDataSchema = new mongoose.Schema({
   moveSpeed: {
     type: Number,
     required: true,
-    unique: false,
   },
   jumpForce: {
     type: Number,
     required: true,
-    unique: false,
   },
-  styleNameId:{
-    type: String,
+  styleName: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "StyleNameData",
     required: true,
-    unique: false,
-  }
+  },
 });
 
-export default mongoose.model("CharacterData", schema);
+export default mongoose.model("CharacterData", characterDataSchema);

@@ -14,7 +14,7 @@ const Query = new GraphQLObjectType({
       args: {id: {type: GraphQLID}},
       resolve(parent, args){
         const {id} = args;
-        return CharacterData.findById(id).clone();;
+        return CharacterData.findById(id).clone();
       }
     },
     characterDataList: {
@@ -28,7 +28,7 @@ const Query = new GraphQLObjectType({
       args: {id: {type: GraphQLID}},
       resolve(parent, args){
         const id= args;
-        return StyleNameData.findById(id).clone();;
+        return StyleNameData.findById(id).clone();
       }
     },
     styleNameDataList: {

@@ -11,7 +11,7 @@ const CharacterDataType = new GraphQLObjectType({
     styleName: {
       type: StyleNameDataType,
       resolve(parent, args){
-        return  StyleNameData.findById(parent.styleNameId).clone();
+        return  StyleNameData.findById(parent.styleNameId);
       }
     }
   })

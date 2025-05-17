@@ -1,36 +1,41 @@
 export const typeDefs = `#graphql 
-  type Query{
+  type Query {
     Hello: String!
     CharacterDataList: [CharacterData]!
     CharacterDataByStyleName(styleName: String!): [CharacterData]!
     CharacterDataById(id: String!): CharacterData!
     StyleNameDataList: [StyleNameData]
-  },
+  }
+
   type Mutation {
     addCharacterData(
       moveSpeed: Float!
       jumpForce: Float!
       styleNameId: String!
-    ):CharacterData!
+    ): CharacterData!
+
     addStyleNameData(
       styleName: String!
       priority: Int!
-    ):StyleNameData!
+    ): StyleNameData!
+
     editCharacterData(
       id: String!
       moveSpeed: Float!
       jumpForce: Float!
       styleName: String!
-    ):CharacterData!
-  },
-  type CharacterData{
-    id: ID!,
+    ): CharacterData!
+  }
+
+  type CharacterData {
+    id: ID!
     moveSpeed: Float!
     jumpForce: Float!
     styleName: StyleNameData
-  },
-  type StyleNameData{
-    id: ID!,
+  }
+
+  type StyleNameData {
+    id: ID!
     styleName: String!
     priority: Int!
   }
