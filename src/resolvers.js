@@ -1,4 +1,6 @@
+import characterData from './models/characterData.js';
 import CharacterData from './models/characterData.js';
+import styleNameData from './models/styleNameData.js';
 import StyleNameData from './models/styleNameData.js';
 
 export const resolvers = {
@@ -12,16 +14,19 @@ export const resolvers = {
         StyleNameData.find({}),
 
     CharacterDataByStyleName: async (root, args) => {
-      const { styleName } = args;
-      const style = await StyleNameData.findOne({ styleName });
-      if (!style) return [];
-      return CharacterData.find({ styleName: style._id }).populate("styleName");
+      const { styleNameId } = args;
+      return CharacterData.find({ styleName: styleNameId}).populate("styleName");
     },
 
     CharacterDataById: async (root, args) => {
       const { id } = args;
       return CharacterData.findById(id).populate("styleName");
     },
+    CharacterDataWitHighestStylePriority: async (root, args) => {
+      const topStyle = await styleNameData.findOne().sort({priority: -1});
+      if(!topStyle) return null;
+      return await characterData.findOne({styleName: topStyle.id}).populate("styleName");
+    }
   },
 
   Mutation: {

@@ -2,9 +2,10 @@ export const typeDefs = `#graphql
   type Query {
     Hello: String!
     CharacterDataList: [CharacterData]!
-    CharacterDataByStyleName(styleName: String!): [CharacterData]!
+    CharacterDataByStyleName(styleNameId: String!): [CharacterData]!
     CharacterDataById(id: String!): CharacterData!
     StyleNameDataList: [StyleNameData]
+    CharacterDataWitHighestStylePriority: CharacterData!
   }
 
   type Mutation {
