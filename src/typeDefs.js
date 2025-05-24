@@ -23,7 +23,7 @@ export const typeDefs = `#graphql
       id: String!
       moveSpeed: Float!
       jumpForce: Float!
-      styleName: String!
+      styleNameId: String!
     ): CharacterData!
   }
 
