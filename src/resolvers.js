@@ -53,5 +53,25 @@ export const resolvers = {
       characterData.styleName = styleNameId;
       return characterData.save().then(doc => doc.populate("styleName"));
     },
+
+    editStyleNameData: async (root, args) => {
+      const { id, styleName, priority } = args;
+
+      const updatedFields = {};
+      if (styleName !== undefined) updatedFields.styleName = styleName;
+      if (priority !== undefined) updatedFields.priority = priority;
+
+      const updated = await StyleNameData.findByIdAndUpdate(
+          id,
+          updatedFields,
+          { new: true, runValidators: true }
+      );
+
+      if (!updated) {
+        throw new Error("StyleNameData not found");
+      }
+
+      return updated;
+    },
   },
 };

@@ -26,6 +26,12 @@ export const typeDefs = `#graphql
       jumpForce: Float!
       styleNameId: String!
     ): CharacterData!
+
+    editStyleNameData(
+      id: String!
+      styleName: String!
+      priority: Int!
+    ): StyleNameData!
   }
 
   type CharacterData {
