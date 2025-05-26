@@ -5,6 +5,7 @@ export const typeDefs = `#graphql
     CharacterDataByStyleName(styleNameId: String!): [CharacterData]!
     CharacterDataById(id: String!): CharacterData!
     StyleNameDataList: [StyleNameData]
+    StyleNameDataById(id: String!): StyleNameData!
     CharacterDataWitHighestStylePriority: CharacterData!
   }
 

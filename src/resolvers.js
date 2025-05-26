@@ -22,6 +22,10 @@ export const resolvers = {
       const { id } = args;
       return CharacterData.findById(id).populate("styleName");
     },
+    StyleNameDataById: async (root, args) => {
+      const { id } = args;
+      return StyleNameData.findById(id);
+    },
     CharacterDataWitHighestStylePriority: async (root, args) => {
       const topStyle = await styleNameData.findOne().sort({priority: -1});
       if(!topStyle) return null;
